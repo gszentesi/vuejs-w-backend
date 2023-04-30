@@ -2,9 +2,10 @@
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
+<!-- https://www.primefaces.org/primeflex/gridsystem -->
+
 <template>
-    <div class="flex flex-column gap-2 md:flex-row">
-        <RouterView />
+    <div class="flex-column">
         <RouterView />
     </div>
 </template>

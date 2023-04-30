@@ -1,9 +1,7 @@
 <template>
-    <div class="flex flex-column gap-1">
-        <div style="border: 1px solid red">test</div>
-        <div style="border: 1px solid red">test</div>
-        <div style="border: 1px solid red">test</div>
-        <Button label="Check" icon="pi pi-check"></Button>
-        <Button label="Check" icon="pi pi-check"></Button>
+    <div class="flex flex-column md:flex-row gap-2">
+        <PrimeTestComponent></PrimeTestComponent>
+        <PrimeTestComponent></PrimeTestComponent>
+        <PrimeTestComponent></PrimeTestComponent>
     </div>
 </template>
