@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PrimeTestView from '../views/PrimeTestView.vue'
 import TableView from '../views/TableView.vue'
-import AnOtherViewVue from '@/views/AnOtherView.vue'
+import GridViewVue from '@/views/GridView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,7 +19,7 @@ const router = createRouter({
         {
             path: '/other',
             name: 'other',
-            component: AnOtherViewVue
+            component: GridViewVue
         }
     ]
 })
