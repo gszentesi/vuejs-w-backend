@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-grow-1 flex-column gap-1">
+    <div class="flex flex-column flex-grow-1 gap-1" style="border: 1px solid blue">
         <div style="border: 1px solid red">test</div>
         <div style="border: 1px solid red">test</div>
         <div style="border: 1px solid red">test</div>
