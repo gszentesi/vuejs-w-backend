@@ -21,7 +21,7 @@ const inc = () => {
     if (index < 4) {
         last.selected = false
         items.value[index + 1].selected = true
-        emit('changed', items.value[index + 1])
+        onChanged(items.value[index + 1])
     }
 }
 
@@ -32,8 +32,12 @@ const dec = () => {
     if (index > 0) {
         last.selected = false
         items.value[index - 1].selected = true
-        emit('changed', items.value[index - 1])
+        onChanged(items.value[index - 1])
     }
+}
+
+const onChanged = (item: ResizeItem) => {
+    emit('changed', item)
 }
 
 const emit = defineEmits<{
