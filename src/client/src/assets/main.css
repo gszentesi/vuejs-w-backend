@@ -1,13 +1,10 @@
-/* theme */
 @import 'primevue/resources/themes/lara-light-indigo/theme.css';
-
-/* core */
 @import 'primevue/resources/primevue.min.css';
-
 @import 'primeflex/primeflex.min.css';
+@import 'primeicons/primeicons.css';
 
 html {
-    font-size: 16px;
+    font-size: 14px;
     height: 100%;
 }
 
