@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PrimeTestView from '../views/PrimeTestView.vue'
-import TableView from '../views/TableView.vue'
+import PrimeTestView from '@/views/PrimeTestView.vue'
+import TableView from '@/views/TableView.vue'
 import GridViewVue from '@/views/GridView.vue'
 
 const router = createRouter({

@@ -51,7 +51,7 @@
 }
 </style>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useCustomerStore } from '@/stores/customer'
 import { FilterMatchMode, FilterOperator } from 'primevue/api'
