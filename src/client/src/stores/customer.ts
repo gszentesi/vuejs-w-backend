@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
 
 export const useCustomerStore = defineStore('customer', () => {
-    const data = ref()
+    const data = ref();
 
     function get() {
         data.value = [
@@ -9006,7 +9006,7 @@ export const useCustomerStore = defineStore('customer', () => {
                 },
                 balance: 88090
             }
-        ]
+        ];
     }
-    return { data, get }
-})
+    return { data, get };
+});

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
-import type { ResizeItem } from './components/Resizer.vue'
+import { ref } from 'vue';
+import { RouterLink, RouterView } from 'vue-router';
+import type { ResizeItem } from './components/Resizer.vue';
 
-const isHidden = ref(false)
+const isHidden = ref(false);
 
 const change = (event: ResizeItem) => {
-    document.getElementsByTagName('html')[0].style.fontSize = event.size
-}
+    document.getElementsByTagName('html')[0].style.fontSize = event.size;
+};
 </script>
 
 <template>

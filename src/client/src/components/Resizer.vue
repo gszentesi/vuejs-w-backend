@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export interface ResizeItem {
-    selected: boolean
-    size: string
+    selected: boolean;
+    size: string;
 }
 
 const items = ref([
@@ -14,37 +14,37 @@ const items = ref([
     { selected: false, size: '16px' },
     { selected: false, size: '18px' },
     { selected: false, size: '20px' }
-] as ResizeItem[])
+] as ResizeItem[]);
 
 const inc = () => {
-    let last = items.value.filter((i) => i.selected)[0]
-    let index = items.value.indexOf(last)
+    let last = items.value.filter((i) => i.selected)[0];
+    let index = items.value.indexOf(last);
 
     if (index < items.value.length - 1) {
-        last.selected = false
-        items.value[index + 1].selected = true
-        onChanged(items.value[index + 1])
+        last.selected = false;
+        items.value[index + 1].selected = true;
+        onChanged(items.value[index + 1]);
     }
-}
+};
 
 const dec = () => {
-    let last = items.value.filter((i) => i.selected)[0]
-    let index = items.value.indexOf(last)
+    let last = items.value.filter((i) => i.selected)[0];
+    let index = items.value.indexOf(last);
 
     if (index > 0) {
-        last.selected = false
-        items.value[index - 1].selected = true
-        onChanged(items.value[index - 1])
+        last.selected = false;
+        items.value[index - 1].selected = true;
+        onChanged(items.value[index - 1]);
     }
-}
+};
 
 const onChanged = (item: ResizeItem) => {
-    emit('changed', item)
-}
+    emit('changed', item);
+};
 
 const emit = defineEmits<{
-    (e: 'changed', item: ResizeItem): void
-}>()
+    (e: 'changed', item: ResizeItem): void;
+}>();
 </script>
 
 <template>

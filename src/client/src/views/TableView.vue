@@ -52,23 +52,23 @@
 </style>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useCustomerStore } from '@/stores/customer'
-import { FilterMatchMode, FilterOperator } from 'primevue/api'
+import { ref, onMounted } from 'vue';
+import { useCustomerStore } from '@/stores/customer';
+import { FilterMatchMode, FilterOperator } from 'primevue/api';
 
 const filters = ref({
     name: {
         operator: FilterOperator.AND,
         constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]
     }
-})
+});
 
-const customerStore = useCustomerStore()
+const customerStore = useCustomerStore();
 
 onMounted(() => {
-    customerStore.get()
-    customers.value = customerStore.data
-})
+    customerStore.get();
+    customers.value = customerStore.data;
+});
 
-const customers = ref()
+const customers = ref();
 </script>
