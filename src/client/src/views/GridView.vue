@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-auto" style="border: 3px solid green; max-height: 100%">
+    <div style="border: 1px solid green; overflow: hidden auto">
         <div class="grid">
             <div class="col-3"><Cell>3</Cell></div>
             <div class="col-6"><Cell>6</Cell></div>
