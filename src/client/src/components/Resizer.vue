@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { initCustomFormatter, reactive, ref } from 'vue'
+import { ref } from 'vue'
 
 export interface ResizeItem {
     selected: boolean
@@ -11,14 +11,16 @@ const items = ref([
     { selected: false, size: '10px' },
     { selected: false, size: '12px' },
     { selected: true, size: '14px' },
-    { selected: false, size: '16px' }
+    { selected: false, size: '16px' },
+    { selected: false, size: '18px' },
+    { selected: false, size: '20px' }
 ] as ResizeItem[])
 
 const inc = () => {
     let last = items.value.filter((i) => i.selected)[0]
     let index = items.value.indexOf(last)
 
-    if (index < 4) {
+    if (index < items.value.length - 1) {
         last.selected = false
         items.value[index + 1].selected = true
         onChanged(items.value[index + 1])
