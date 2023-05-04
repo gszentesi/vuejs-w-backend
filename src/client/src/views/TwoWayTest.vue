@@ -15,9 +15,9 @@ const update = (incoming: IData) => {
         class="flex flex-column flex-grow-1 flex-shrink-1"
         style="border: 1px solid green; overflow: hidden auto"
     >
+        <h1>Data stored on View</h1>
         <InputText :value="td.text" @change="td.text = ($event.target as any).value" />
-        <div class="flex">Text: {{ td.text }}</div>
-        <div class="flex">Count: {{ td.count }}</div>
+        <InputText :value="td.count" @change="td.count = Number(($event.target as any).value)" />
 
         <Data :data="td" @update="update"></Data>
     </div>

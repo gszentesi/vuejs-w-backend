@@ -10,8 +10,9 @@ const count = ref(80);
         class="flex flex-column flex-grow-1 flex-shrink-1"
         style="border: 1px solid green; overflow: hidden auto"
     >
-        <div class="flex">Text: {{ text }}</div>
-        <div class="flex">Count: {{ count }}</div>
+        <h1>Data stored on Simple View</h1>
+        <InputText :value="text" @change="text = ($event.target as any).value" />
+        <InputText :value="count" @change="count = Number(($event.target as any).value)" />
 
         <DataSimple
             :text="text"
