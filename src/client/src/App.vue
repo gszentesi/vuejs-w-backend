@@ -31,6 +31,8 @@ const change = (event: ResizeItem) => {
             <router-link to="/">Test</router-link>
             <router-link to="/other">Grid</router-link>
             <router-link to="/table">Table</router-link>
+            <router-link to="/twoway">TwoWay</router-link>
+            <router-link to="/twowaysimple">TwoWaySimple</router-link>
         </div>
 
         <div class="flex flex-shrink-1 flex-grow-1" style="border: 1px solid magenta">
