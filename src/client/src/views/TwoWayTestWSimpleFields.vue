@@ -7,13 +7,14 @@ const count = ref(80);
 
 <template>
     <div
-        class="flex flex-column flex-grow-1 flex-shrink-1"
+        class="flex flex-column flex-grow-1 flex-shrink-1 gap-2"
         style="border: 1px solid green; overflow: hidden auto"
     >
-        <h1>Data stored on Simple View</h1>
-        <InputText :value="text" @change="text = ($event.target as any).value" />
-        <InputText :value="count" @change="count = Number(($event.target as any).value)" />
-
+        <div class="flex flex-column">
+            <h1>Data stored on Simple View</h1>
+            <InputText :value="text" @change="text = ($event.target as any).value" />
+            <InputText :value="count" @change="count = Number(($event.target as any).value)" />
+        </div>
         <DataSimple
             :text="text"
             :count="count"
