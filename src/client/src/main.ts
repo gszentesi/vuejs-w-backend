@@ -13,11 +13,12 @@ import router from './router';
 
 import './assets/main.css';
 
-import PrimeTestComponentVue from './components/PrimeTestComponent.vue';
+import PrimeTestComponent from './components/PrimeTestComponent.vue';
 import Cell from './components/Cell.vue';
 import Data from './components/Data.vue';
 import DataSimple from './components/DataSimple.vue';
 import Resizer from './components/Resizer.vue';
+import ViewModel from './components/ViewModel.vue';
 
 const app = createApp(App);
 
@@ -27,13 +28,13 @@ app.component('InputText', InputText);
 app.component('InputNumber', InputNumber);
 app.component('DataTable', DataTable);
 app.component('Column', Column);
-app.component('Resizer', Resizer);
 
+app.component('Resizer', Resizer);
 app.component('Cell', Cell);
 app.component('Data', Data);
 app.component('DataSimple', DataSimple);
-
-app.component('PrimeTestComponent', PrimeTestComponentVue);
+app.component('PrimeTestComponent', PrimeTestComponent);
+app.component('ViewModel', ViewModel);
 
 app.use(createPinia());
 app.use(router);

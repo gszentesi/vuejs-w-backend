@@ -4,6 +4,7 @@ import TableView from '@/views/TableView.vue';
 import GridViewVue from '@/views/GridView.vue';
 import TwoWayTestVue from '@/views/TwoWayTest.vue';
 import TwoWayTestTestWSimpleFields from '@/views/TwoWayTestWSimpleFields.vue';
+import ViewModelTestVue from '@/views/ViewModelTest.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
             path: '/twowaysimple',
             name: 'twowaysimple',
             component: TwoWayTestTestWSimpleFields
+        },
+        {
+            path: '/viewmodeltest',
+            name: 'viewmodeltest',
+            component: ViewModelTestVue
         }
     ]
 });
