@@ -19,6 +19,7 @@ import Data from './components/Data.vue';
 import DataSimple from './components/DataSimple.vue';
 import Resizer from './components/Resizer.vue';
 import ViewModel from './components/ViewModel.vue';
+import ViewModelComplex from './components/ViewModelComplex.vue';
 
 const app = createApp(App);
 
@@ -35,6 +36,7 @@ app.component('Data', Data);
 app.component('DataSimple', DataSimple);
 app.component('PrimeTestComponent', PrimeTestComponent);
 app.component('ViewModel', ViewModel);
+app.component('ViewModelComplex', ViewModelComplex);
 
 app.use(createPinia());
 app.use(router);

@@ -5,6 +5,7 @@ import GridViewVue from '@/views/GridView.vue';
 import TwoWayTestVue from '@/views/TwoWayTest.vue';
 import TwoWayTestTestWSimpleFields from '@/views/TwoWayTestWSimpleFields.vue';
 import ViewModelTestVue from '@/views/ViewModelTest.vue';
+import ViewModelComplexTest from '@/views/ViewModelComplexTest.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
             path: '/viewmodeltest',
             name: 'viewmodeltest',
             component: ViewModelTestVue
+        },
+        {
+            path: '/viewmodelcomplex',
+            name: 'viewmodelcomplex',
+            component: ViewModelComplexTest
         }
     ]
 });

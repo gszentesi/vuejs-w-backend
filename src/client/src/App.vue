@@ -34,6 +34,7 @@ const change = (event: ResizeItem) => {
             <router-link to="/twoway">TwoWay</router-link>
             <router-link to="/twowaysimple">TwoWaySimple</router-link>
             <router-link to="/viewmodeltest">ViewModelTest</router-link>
+            <router-link to="/viewmodelcomplex">ViewModelComplex</router-link>
         </div>
 
         <div class="flex flex-shrink-1 flex-grow-1" style="border: 1px solid magenta">

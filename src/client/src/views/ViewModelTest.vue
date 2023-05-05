@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-const display = ref('alma');
+const title = ref('title');
+const count = ref(10);
 </script>
 
 <template>
@@ -8,7 +9,7 @@ const display = ref('alma');
         class="flex flex-column flex-grow-1"
         style="border: 1px solid green; overflow: hidden auto"
     >
-        In parent: {{ display }}
-        <ViewModel v-model:display="display"></ViewModel>
+        In parent: Title: {{ title }} Count: {{ count }}
+        <ViewModel v-model:title="title" v-model:count="count"></ViewModel>
     </div>
 </template>
