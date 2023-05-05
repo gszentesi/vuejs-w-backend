@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DataSimpleComponent from '@/components/DataSimpleComponent.vue';
 import { ref } from 'vue';
 
 const text = ref('szilva');
@@ -15,11 +16,11 @@ const count = ref(80);
             <InputText :value="text" @change="text = ($event.target as any).value" />
             <InputText :value="count" @change="count = Number(($event.target as any).value)" />
         </div>
-        <DataSimple
+        <DataSimpleComponent
             :text="text"
             :count="count"
             @textChanged="text = $event"
             @countChanged="count = $event"
-        ></DataSimple>
+        ></DataSimpleComponent>
     </div>
 </template>

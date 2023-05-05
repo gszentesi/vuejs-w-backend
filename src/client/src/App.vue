@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
-import type { ResizeItem } from './components/Resizer.vue';
+import type { ResizeItem } from './components/ResizerComponent.vue';
 
 const isHidden = ref(false);
 
@@ -18,7 +18,7 @@ const change = (event: ResizeItem) => {
         HEADER
 
         <div class="flex flex-grow-1 justify-content-end">
-            <Resizer @changed="change($event)"></Resizer>
+            <ResizerComponent @changed="change($event)"></ResizerComponent>
         </div>
     </div>
 

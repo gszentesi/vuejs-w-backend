@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import PrimeTestView from '@/views/PrimeTestView.vue';
 import TableView from '@/views/TableView.vue';
-import GridViewVue from '@/views/GridView.vue';
-import TwoWayTestVue from '@/views/TwoWayTest.vue';
-import TwoWayTestTestWSimpleFields from '@/views/TwoWayTestWSimpleFields.vue';
-import ViewModelTestVue from '@/views/ViewModelTest.vue';
-import ViewModelComplexTest from '@/views/ViewModelComplexTest.vue';
+import GridView from '@/views/GridView.vue';
+import TwoWayTestView from '@/views/TwoWayTestView.vue';
+import TwoWayTestWSimpleFieldsView from '@/views/TwoWayTestWSimpleFieldsView.vue';
+import ViewModelComplexTestView from '@/views/ViewModelComplexTestView.vue';
+import ViewModelTestView from '@/views/ViewModelTestView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,27 +23,27 @@ const router = createRouter({
         {
             path: '/other',
             name: 'other',
-            component: GridViewVue
+            component: GridView
         },
         {
             path: '/twoway',
             name: 'twoway',
-            component: TwoWayTestVue
+            component: TwoWayTestView
         },
         {
             path: '/twowaysimple',
             name: 'twowaysimple',
-            component: TwoWayTestTestWSimpleFields
+            component: TwoWayTestWSimpleFieldsView
         },
         {
             path: '/viewmodeltest',
             name: 'viewmodeltest',
-            component: ViewModelTestVue
+            component: ViewModelTestView
         },
         {
             path: '/viewmodelcomplex',
             name: 'viewmodelcomplex',
-            component: ViewModelComplexTest
+            component: ViewModelComplexTestView
         }
     ]
 });

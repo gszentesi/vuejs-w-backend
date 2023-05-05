@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IData } from '@/components/Data.vue';
+import type { IData } from '@/components/DataComponent.vue';
 import { ref } from 'vue';
 
 const td = ref({ text: 'alma', count: 10 } as IData);
@@ -24,6 +24,6 @@ const update = (incoming: IData) => {
             />
         </div>
 
-        <Data :data="td" @update="update"></Data>
+        <DataComponent :data="td" @update="update"></DataComponent>
     </div>
 </template>

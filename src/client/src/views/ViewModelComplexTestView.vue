@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IComplexModel } from '@/components/ViewModelComplex.vue';
+import type { IComplexModel } from '@/components/ViewModelComplexComponent.vue';
 import { ref } from 'vue';
 
 const md = ref({
@@ -14,6 +14,9 @@ const md = ref({
         style="border: 1px solid green; overflow: hidden auto"
     >
         In parent: Title: {{ md.title }} Count: {{ md.count }}
-        <ViewModelComplex v-model:title="md.title" v-model:count="md.count"></ViewModelComplex>
+        <ViewModelComplexComponent
+            v-model:title="md.title"
+            v-model:count="md.count"
+        ></ViewModelComplexComponent>
     </div>
 </template>

@@ -15,7 +15,7 @@ defineEmits(['update:title', 'update:count']);
         <InputText
             type="number"
             :value="count"
-            @input="$emit('update:title', ($event.target as any).value)"
+            @input="$emit('update:count', Number(($event.target as any).value))"
         />
         {{ title }}
         {{ count }}
