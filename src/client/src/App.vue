@@ -25,6 +25,7 @@ const change = (event: ResizeItem) => {
     <div id="content" class="flex flex-row flex-grow-1 flex-grow-0" style="overflow: hidden">
         <div
             id="sideNav"
+            style="background-color: gainsboro"
             :style="{ width: isHidden ? '0px' : '200px', opacity: isHidden ? 0 : 1 }"
             class="flex flex-column flex-shrink-1 overflow-auto"
         >
@@ -35,9 +36,10 @@ const change = (event: ResizeItem) => {
             <router-link to="/twowaysimple">TwoWaySimple</router-link>
             <router-link to="/viewmodeltest">ViewModelTest</router-link>
             <router-link to="/viewmodelcomplex">ViewModelComplex</router-link>
+            <router-link to="/embed">EmbedView</router-link>
         </div>
 
-        <div class="flex flex-shrink-1 flex-grow-1" style="border: 1px solid magenta">
+        <div class="flex flex-shrink-1 flex-grow-1">
             <RouterView />
         </div>
     </div>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import ViewModelComponent from '@/components/ViewModelComponent.vue';
 import { ref } from 'vue';
+import { useDialog } from 'primevue/usedialog';
+
+const dialog = useDialog();
+
 const title = ref('title');
 const count = ref(10);
 </script>

@@ -6,6 +6,7 @@ import TwoWayTestView from '@/views/TwoWayTestView.vue';
 import TwoWayTestWSimpleFieldsView from '@/views/TwoWayTestWSimpleFieldsView.vue';
 import ViewModelComplexTestView from '@/views/ViewModelComplexTestView.vue';
 import ViewModelTestView from '@/views/ViewModelTestView.vue';
+import EmbedView from '@/views/EmbedView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
             path: '/viewmodelcomplex',
             name: 'viewmodelcomplex',
             component: ViewModelComplexTestView
+        },
+        {
+            path: '/embed',
+            name: 'embed',
+            component: EmbedView
         }
     ]
 });
