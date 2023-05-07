@@ -9,11 +9,13 @@ onMounted(() => {});
 
 const menu = [
     { icon: 'pi pi-facebook', type: 'facebook' },
-    { icon: 'pi pi-twitter', type: 'twitter' }
+    { icon: 'pi pi-twitter', type: 'twitter' },
+    { icon: 'fa-brands fa-tiktok', type: 'tiktok' }
 ];
 
 const add = (what: string) => {
     let el = document.getElementById('html-content');
+    console.log(what);
     if (el) {
         el.innerHTML += what;
     }
@@ -43,6 +45,8 @@ const getUrl = (type: string) => {
                         add(getFacebook(data.url));
                     case 'twitter':
                         add(getTwitter(data.url));
+                    case 'tiktok':
+                        add(getTikTok(data.url));
                 }
             }
         }
@@ -53,42 +57,56 @@ const getFacebook = (url: string): string => {
     return `<iframe src="https://www.facebook.com/plugins/post.php?href=${url}&show_text=true&width=500" width="500" height="481" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
 };
 
-const twitterScriptAdded = ref(false);
-const addTwitterScript = () => {
-    if (twitterScriptAdded.value) return;
-
-    console.log('adding script');
+const addScript = (url: string) => {
+    console.log(`adding script: ${url}`);
     var s = document.createElement('script');
     s.type = 'text/javascript';
-    s.src = 'https://platform.twitter.com/widgets.js';
-    document.head.appendChild(s);
+    s.src = url;
+    document.body.appendChild(s);
     console.log('adding script done');
-
-    twitterScriptAdded.value = true;
 };
 
 const getTwitter = (url: string): string => {
-    addTwitterScript();
-    return `<blockquote class="twitter-tweet">
-            <a
-                href="${url}"
-            ></a>
-        </blockquote>`;
+    addScript('https://platform.twitter.com/widgets.js');
+    return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`;
+};
+
+const getTikTok = (url: string): string => {
+    addScript('https://www.tiktok.com/embed.js');
+
+    let splited = url.split('/');
+    let id = splited[splited.length - 1];
+
+    return `<blockquote class="tiktok-embed" cite="${url}" data-video-id="${id}" style="max-width: 605px;min-width: 325px;"><section></section></blockquote>`;
 };
 </script>
 
 <template>
     <div class="flex flex-column flex-grow-1 overflow-auto">
-        <div class="flex flex-row gap-2 menu">
-            <Button
-                v-for="item in menu"
-                :icon="item.icon"
-                text
-                raised
-                rounded
-                severity="secondary"
-                @click="getUrl(item.type)"
-            ></Button>
+        <div class="flex flex-row justify-content-center">
+            <div class="flex flex-row gap-2 menu" v-for="item in menu">
+                <Button
+                    v-if="item.icon.startsWith('fa') === false"
+                    :icon="item.icon"
+                    text
+                    raised
+                    rounded
+                    severity="secondary"
+                    @click="getUrl(item.type)"
+                ></Button>
+
+                <Button
+                    v-if="item.icon.startsWith('fa') === true"
+                    :icon="item.icon"
+                    text
+                    raised
+                    rounded
+                    severity="secondary"
+                    @click="getUrl(item.type)"
+                >
+                    <font-awesome-icon :icon="item.icon" />
+                </Button>
+            </div>
         </div>
 
         <div
