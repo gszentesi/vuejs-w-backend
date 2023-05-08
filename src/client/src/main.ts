@@ -24,6 +24,11 @@ import ResizerComponent from './components/ResizerComponent.vue';
 import ViewModelComponent from './components/ViewModelComponent.vue';
 import ViewModelComplexComponent from './components/ViewModelComplexComponent.vue';
 import InputUrlComponent from './components/InputUrlComponent.vue';
+import YoutubeComponent from './components/YoutubeComponent.vue';
+import TiktokComponent from './components/TiktokComponent.vue';
+import InstagramCompoenent from './components/InstagramComponent.vue';
+import TwitterComponent from './components/TwitterComponent.vue';
+import FacebookComponent from './components/FacebookComponent.vue';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -51,6 +56,11 @@ app.component('PrimeTestComponent', PrimeTestComponent);
 app.component('ViewModelComponent', ViewModelComponent);
 app.component('ViewModelComplexComponent', ViewModelComplexComponent);
 app.component('InputUrlComponent', InputUrlComponent);
+app.component('YoutubeComponent', YoutubeComponent);
+app.component('TiktokComponent', TiktokComponent);
+app.component('InstagramCompoenent', InstagramCompoenent);
+app.component('TwitterComponent', TwitterComponent);
+app.component('FacebookComponent', FacebookComponent);
 
 app.use(createPinia());
 app.use(router);

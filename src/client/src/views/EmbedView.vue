@@ -1,27 +1,48 @@
 <script setup lang="ts">
 import InputUrlComponent from '@/components/InputUrlComponent.vue';
+import YoutubeComponent from '@/components/YoutubeComponent.vue';
+import TiktokComponent from '@/components/TiktokComponent.vue';
+import InstagramComponent from '@/components/InstagramComponent.vue';
+import TwitterComponent from '@/components/TwitterComponent.vue';
+import FacebookComponent from '@/components/FacebookComponent.vue';
+
 import { useDialog } from 'primevue/usedialog';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 const dialog = useDialog();
 
-onMounted(() => {});
+const YOUTUBE = 'youtube';
+const INSTAGRAM = 'instagram';
+const TWITTER = 'twitter';
+const TIKTOK = 'tiktok';
+const FACEBOOK = 'facebook';
 
 const menu = [
-    { icon: 'pi pi-facebook', type: 'facebook' },
-    { icon: 'pi pi-twitter', type: 'twitter' },
-    { icon: 'fa-brands fa-tiktok', type: 'tiktok' },
-    { icon: 'pi pi-instagram', type: 'insta' },
-    { icon: 'pi pi-youtube', type: 'youtube' }
+    { icon: 'pi pi-facebook', type: FACEBOOK },
+    { icon: 'pi pi-twitter', type: TWITTER },
+    { icon: 'fa-brands fa-tiktok', type: TIKTOK },
+    { icon: 'pi pi-instagram', type: INSTAGRAM },
+    { icon: 'pi pi-youtube', type: YOUTUBE }
 ];
 
-const add = (what: string) => {
-    let el = document.getElementById('html-content');
-    console.log(what);
-    if (el) {
-        el.innerHTML = what + el.innerHTML;
+interface Content {
+    url: string;
+    type: string;
+}
+
+const contents = ref([
+    { url: 'https://youtu.be/RuM4JIoO0lQ', type: YOUTUBE },
+    { url: 'https://www.tiktok.com/@scout2015/video/6718335390845095173', type: TIKTOK },
+    {
+        url: 'https://www.instagram.com/reel/CqWjCaoIF08/?utm_source=ig_web_copy_link',
+        type: INSTAGRAM
+    },
+    { url: 'https://twitter.com/elonmusk/status/1652849795336159233?s=20', type: TWITTER },
+    {
+        url: 'https://www.facebook.com/photo/?fbid=235944375693223&set=gm.6859843630699566&idorvanity=122643284419668',
+        type: FACEBOOK
     }
-};
+] as Content[]);
 
 const getUrl = (type: string) => {
     console.log(type);
@@ -41,84 +62,15 @@ const getUrl = (type: string) => {
             const data = options.data;
             if (data && data.buttonType === 'Yes') {
                 console.log(data.url);
-
-                switch (type) {
-                    case 'facebook':
-                        add(getFacebook(data.url));
-                        break;
-                    case 'twitter':
-                        add(getTwitter(data.url));
-                        break;
-                    case 'tiktok':
-                        add(getTikTok(data.url));
-                        break;
-                    case 'insta':
-                        add(getInsta(data.url));
-                        break;
-                    case 'youtube':
-                        add(getYoutube(data.url));
-                        break;
-                }
+                contents.value.push({ url: data.url, type: type });
             }
         }
     });
 };
-
-const getFacebook = (url: string): string => {
-    return `<iframe src="https://www.facebook.com/plugins/post.php?href=${url}&show_text=true&width=500" width="500" height="481" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
-};
-
-const addScript = (url: string) => {
-    console.log(`adding script: ${url}`);
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = url;
-    document.body.appendChild(s);
-    console.log('adding script done');
-};
-
-const getTwitter = (url: string): string => {
-    addScript('https://platform.twitter.com/widgets.js');
-    return `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`;
-};
-
-const getTikTok = (url: string): string => {
-    addScript('https://www.tiktok.com/embed.js');
-
-    let splited = url.split('/');
-    let id = splited[splited.length - 1];
-
-    return `<blockquote class="tiktok-embed" cite="${url}" data-video-id="${id}" style="max-width: 605px;min-width: 325px;"><section></section></blockquote>`;
-};
-
-const getInsta = (url: string) => {
-    addScript('http://instagram.com/embed.js');
-    return ` <blockquote
-      class="instagram-media"
-      data-instgrm-captioned
-      data-instgrm-permalink="${url}"
-      data-instgrm-version="14"
-    ></blockquote>
-    `;
-};
-
-const getYoutube = (url: string) => {
-    let splited = url.split('/');
-    let id = splited[splited.length - 1];
-
-    return `<iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/${id}"
-      title="YouTube video player"
-      frameborder="0"
-    ></iframe>
-    `;
-};
 </script>
 
 <template>
-    <div class="flex flex-column flex-grow-1 overflow-auto">
+    <div class="flex flex-column flex-grow-1">
         <div class="flex flex-row justify-content-center">
             <div class="flex flex-row gap-2 menu" v-for="item in menu">
                 <Button
@@ -151,6 +103,31 @@ const getYoutube = (url: string) => {
             id="html-content"
             class="flex flex-column justify-content-center align-items-center gap-4"
         ></div>
+
+        <div style="overflow: auto">
+            <div v-for="content in contents">
+                <YoutubeComponent
+                    v-if="content.type === YOUTUBE"
+                    v-model:url="content.url"
+                ></YoutubeComponent>
+                <TiktokComponent
+                    v-if="content.type === TIKTOK"
+                    v-model:url="content.url"
+                ></TiktokComponent>
+                <InstagramComponent
+                    v-if="content.type === INSTAGRAM"
+                    v-model:url="content.url"
+                ></InstagramComponent>
+                <TwitterComponent
+                    v-if="content.type === TWITTER"
+                    v-model:url="content.url"
+                ></TwitterComponent>
+                <FacebookComponent
+                    v-if="content.type === FACEBOOK"
+                    v-model:url="content.url"
+                ></FacebookComponent>
+            </div>
+        </div>
         <DynamicDialog />
     </div>
 </template>
