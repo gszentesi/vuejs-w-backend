@@ -70,9 +70,9 @@ const getUrl = (type: string) => {
 </script>
 
 <template>
-    <div class="flex flex-column flex-grow-1">
-        <div class="flex flex-row justify-content-center">
-            <div class="flex flex-row gap-2 menu" v-for="item in menu">
+    <div class="flex flex-column flex-grow-1 gap-2">
+        <div class="flex flex-row justify-content-center shadow-1">
+            <div class="flex flex-row gap-2 container" v-for="item in menu">
                 <Button
                     v-if="item.icon.startsWith('fa') === false"
                     :icon="item.icon"
@@ -99,12 +99,7 @@ const getUrl = (type: string) => {
             </div>
         </div>
 
-        <div
-            id="html-content"
-            class="flex flex-column justify-content-center align-items-center gap-4"
-        ></div>
-
-        <div style="overflow: auto">
+        <div style="overflow: auto" class="container">
             <div v-for="content in contents">
                 <YoutubeComponent
                     v-if="content.type === YOUTUBE"
@@ -133,7 +128,7 @@ const getUrl = (type: string) => {
 </template>
 
 <style scoped>
-.menu {
+.container {
     padding: 0.5rem;
 }
 </style>
