@@ -17,7 +17,7 @@ const add = (what: string) => {
     let el = document.getElementById('html-content');
     console.log(what);
     if (el) {
-        el.innerHTML += what;
+        el.innerHTML = what + el.innerHTML;
     }
 };
 
@@ -43,10 +43,13 @@ const getUrl = (type: string) => {
                 switch (type) {
                     case 'facebook':
                         add(getFacebook(data.url));
+                        break;
                     case 'twitter':
                         add(getTwitter(data.url));
+                        break;
                     case 'tiktok':
                         add(getTikTok(data.url));
+                        break;
                 }
             }
         }
