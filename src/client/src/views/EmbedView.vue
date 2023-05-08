@@ -71,7 +71,7 @@ const getUrl = (type: string) => {
 
 <template>
     <div class="flex flex-column flex-grow-1 gap-2">
-        <div class="flex flex-row justify-content-center shadow-1">
+        <div class="flex flex-row justify-content-center shadow-1 menu">
             <div class="flex flex-row gap-2 container" v-for="item in menu">
                 <Button
                     v-if="item.icon.startsWith('fa') === false"
@@ -130,5 +130,9 @@ const getUrl = (type: string) => {
 <style scoped>
 .container {
     padding: 0.5rem;
+}
+
+.menu {
+    background-color: rgb(243, 243, 243);
 }
 </style>
