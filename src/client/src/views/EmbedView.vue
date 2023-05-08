@@ -103,10 +103,13 @@ const getInsta = (url: string) => {
 };
 
 const getYoutube = (url: string) => {
+    let splited = url.split('/');
+    let id = splited[splited.length - 1];
+
     return `<iframe
       width="560"
       height="315"
-      src="${url}"
+      src="https://www.youtube.com/embed/${id}"
       title="YouTube video player"
       frameborder="0"
     ></iframe>
