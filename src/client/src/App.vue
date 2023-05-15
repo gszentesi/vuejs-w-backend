@@ -37,6 +37,7 @@ const change = (event: ResizeItem) => {
             <router-link to="/viewmodeltest">ViewModelTest</router-link>
             <router-link to="/viewmodelcomplex">ViewModelComplex</router-link>
             <router-link to="/embed">EmbedView</router-link>
+            <router-link to="/draganddrop">DragAndDrop</router-link>
         </div>
 
         <div class="flex flex-shrink-1 flex-grow-1">

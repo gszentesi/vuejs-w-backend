@@ -7,6 +7,7 @@ import TwoWayTestWSimpleFieldsView from '@/views/TwoWayTestWSimpleFieldsView.vue
 import ViewModelComplexTestView from '@/views/ViewModelComplexTestView.vue';
 import ViewModelTestView from '@/views/ViewModelTestView.vue';
 import EmbedView from '@/views/EmbedView.vue';
+import DragAndDropViewVue from '@/views/DragAndDropView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
             path: '/embed',
             name: 'embed',
             component: EmbedView
+        },
+        {
+            path: '/draganddrop',
+            name: 'draganddrop',
+            component: DragAndDropViewVue
         }
     ]
 });

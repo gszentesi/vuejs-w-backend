@@ -33,10 +33,12 @@ import FacebookComponent from './components/FacebookComponent.vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faGripLines } from '@fortawesome/free-solid-svg-icons';
 
 const app = createApp(App);
 
 library.add(faTiktok);
+library.add(faGripLines);
 app.component('font-awesome-icon', FontAwesomeIcon);
 
 app.use(PrimeVue);
